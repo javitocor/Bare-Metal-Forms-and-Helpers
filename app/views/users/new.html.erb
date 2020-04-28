@@ -1,11 +1,32 @@
-<%= form_tag('/users', method:'post') do %>
-    <%= label_tag 'Email' %>
-    <%= email_field(:user, :email) %><br>
-    <%= label_tag 'Name' %>
-    <%= text_field_tag(:username) %><br>
-    <%= label_tag 'Password'%>
-    <%= password_field_tag(:password) %><br>
-    <%= submit_tag('Submit User') %>
+<%= form_for @user do |f| %>
+  <%= f.label :email, 'Your email:' %><br>
+  <%= f.email_field :email, placeholder: 'yourname@example.com', value: 'email@example.com' %>
+  <br><br>
+  <%= f.label :username, 'Your username:' %><br>
+  <%= f.text_field :username, placeholder: 'Username', value: 'your-username' %>
+  <br><br>
+  <%= f.label :password, 'Your password:' %><br>
+  <%= f.password_field :password %>
+  <br><br>
+  <%= f.submit %>
+<% end %>
+
+
+
+
+
+
+
+<% if false %>
+  <%= form_tag('/users', method:'post') do %>
+      <%= label_tag 'Email' %>
+      <%= email_field(:user, :email) %><br>
+      <%= label_tag 'Name' %>
+      <%= text_field_tag(:username) %><br>
+      <%= label_tag 'Password'%>
+      <%= password_field_tag(:password) %><br>
+      <%= submit_tag('Submit User') %>
+  <% end %>
 <% end %>
 
 
