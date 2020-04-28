@@ -1,0 +1,18 @@
+<h1 class="py-5">Users List:</h1>
+
+<div class="row">
+  <% @users.each do |user| %>
+    <div class="col-lg-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= user.username %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= user.email %></h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <%= link_to 'Show', user %> | 
+          <%= link_to 'Edit', edit_user_path(user) %> | 
+          <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
