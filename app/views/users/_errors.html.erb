@@ -1,6 +1,6 @@
 <% if @user.errors.any? %>
-  <div class="alert alert-danger" role="alert">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this post from being saved:</h2>
+  <div class="alert alert-danger w-50" role="alert">
+    <h4><%= pluralize(@user.errors.count, "error") %> prohibited this post from being saved:</h4>
     <ul>
       <% @user.errors.full_messages.each do |error| %>
         <li><%= error %></li>

@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:success] = "User created successfully"
       redirect_to @user
     else
       render :new
@@ -26,6 +27,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
+      flash[:success] = "User updated successfully"
       redirect_to @user
     else
       render 'edit'
@@ -34,7 +36,20 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
+
+    flash[:success] = "User deleted successfully"
     redirect_to root_path
+  end
+
+  def searcher
+    @user = User.find_by(username: params[:search])
+
+    if @user
+      redirect_to @user
+    else      
+      flash[:danger] = "User not found"
+      redirect_to root_path
+    end
   end
 
   private
