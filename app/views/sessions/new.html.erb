@@ -1,0 +1,19 @@
+<h1 class="py-5">Login</h1>
+<%= form_for login_path, html: {class: 'w-50'} do |f| %>  
+
+    <div class="form-group">
+        <%= f.label :email, 'Your email:' %>
+        <%= f.email_field :email, placeholder: 'yourname@example.com', class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :password, 'Your password:' %>
+        <%= f.password_field :password, class: "form-control" %>
+    </div> 
+
+    <div class="form-group">
+    <%= f.submit class: "btn btn-primary" %> 
+    <p><%= link_to 'Sign Up', signup_path %> If you still don't got an account </p>
+    </div>
+
+<% end %>
