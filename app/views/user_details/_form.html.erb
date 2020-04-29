@@ -1,0 +1,36 @@
+<%= form_for([@user, @user_detail]) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :name, 'Your Name:' %>
+    <%= f.text_field :name, placeholder: 'Name', class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :nationality, 'Your nationality:' %>
+    <%= f.text_field :nationality, placeholder: 'Nationality', class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :birthdate, 'Your birthdate:' %>
+    <%# <%= f.date_field("user_detail", "birthdate") %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :gender, 'Your Gender:' %>
+    <%= f.radio_button(:gender, "male") %>
+    <%= f.label :gender_male, "Male" %>
+    <%= f.radio_button(:gender, "female") %>
+    <%= f.label :gender_female, "Female" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :employee, 'Your Employment status:' %>
+    <%= f.radio_button(:employee, "true") %>
+    <%= f.label :employed, "Employed" %>
+    <%= f.radio_button(:employee, "false") %>
+    <%= f.label :not_employed, "Not employed" %>
+  </div>
+
+  <%= f.submit class: "btn btn-primary" %>
+  
+<% end %>
