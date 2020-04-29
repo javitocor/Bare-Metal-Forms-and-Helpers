@@ -8,7 +8,8 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">      
+    <ul class="navbar-nav mr-auto"> 
+      <% if !logged_in? %>     
       <li class="nav-item">
         <%= link_to 'Sign Up', signup_path, class: 'nav-link' %>
       </li>
@@ -26,6 +27,14 @@
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to 'Profile', current_user, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Log Out', logout_path, method: :delete, class: 'nav-link' %>
+      </li>
+      <% end %>
     </ul>
 
     <form action="/search" method="post" class="form-inline my-2 my-lg-0">

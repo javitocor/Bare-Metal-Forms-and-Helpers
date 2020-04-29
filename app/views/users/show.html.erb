@@ -4,8 +4,10 @@
       <h5 class="card-title"><%= @user.username %></h5>
       <h6 class="card-subtitle mb-2 text-muted"><%= @user.email %></h6>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <% if logged_in? && current_user.id == @user.id %> 
       <%= link_to 'Edit', edit_user_path(@user) %> | 
       <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
     </div>
   </div>
 </div>

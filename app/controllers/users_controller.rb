@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, only: %i[show edit update destroy]
+  before_action  :authorized, only: [:edit, :update, :destroy, :show]
 
   def index
     @users = User.all.order('created_at DESC')

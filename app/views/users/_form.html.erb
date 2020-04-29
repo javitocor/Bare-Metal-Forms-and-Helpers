@@ -10,7 +10,7 @@
     <%= f.email_field :email, placeholder: 'yourname@example.com', class: "form-control" %>
   </div>  
   
-  <% unless @user.email.nil? && @user.username.nil? %>
+  <% unless @user.email.nil? && @user.username.nil? && logged_in? %>
     <div class="form-group">
       <%= f.label :password, 'Your old password:' %>
       <%= f.password_field :password, class: "form-control" %>
