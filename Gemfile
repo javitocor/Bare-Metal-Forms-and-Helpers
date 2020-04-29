@@ -29,7 +29,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'faker'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+# encrypt passwords
+gem 'bcrypt', '~> 3.1', '>= 3.1.13'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
