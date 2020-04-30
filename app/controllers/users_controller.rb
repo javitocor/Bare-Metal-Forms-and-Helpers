@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, only: %i[show edit update destroy]
   before_action :authorized, only: [:edit, :update, :destroy, :show]
-
   def index
     # @users = User.all.order('created_at DESC')
     @users = User.all.order('created_at DESC').paginate(page: params[:page], per_page: 20)
@@ -49,7 +48,7 @@ class UsersController < ApplicationController
   end
 
   def searcher
-    @user = User.find_by(username: params[:search])
+    @user = User.ci_find('username', params[:search])
 
     if @user
       redirect_to @user
@@ -60,6 +59,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def username_downcase
+
+  end
 
   def find_user
     @user = User.find(params[:id])

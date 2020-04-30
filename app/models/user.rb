@@ -6,4 +6,6 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 3, maximum: 15 }, :on => :create
   has_one :user_detail
   has_one_attached :avatar
+  scope :ci_find, lambda { |attribute, value| where("lower(#{attribute}) = ?", value.downcase).first }
+
 end
