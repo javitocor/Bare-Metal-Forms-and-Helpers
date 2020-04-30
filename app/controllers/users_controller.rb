@@ -17,6 +17,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
+
+      @user_detail = UserDetail.create(user_id: @user.id)
+
       flash[:success] = "User created successfully"
       redirect_to @user
     else
@@ -25,8 +28,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user_detail = UserDetail.new
-    @user_detail.user_id = @user.id
+    @user_detail = UserDetail.find_by(user_id: @user.id)
   end
 
   def update

@@ -1,4 +1,4 @@
-<%= form_for([@user, @user_detail]) do |f| %>
+<%= form_for @user_detail, html: { class: "w-50" } do |f| %>
 
   <div class="form-group">
     <%= f.label :name, 'Your Name:' %>
@@ -12,7 +12,7 @@
 
   <div class="form-group">
     <%= f.label :birthdate, 'Your birthdate:' %>
-    <%# <%= f.date_field("user_detail", "birthdate") %>
+    <%= f.text_field :birthdate, placeholder: "yyyy-mm-dd", value: @user_detail.birthdate, class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -32,5 +32,5 @@
   </div>
 
   <%= f.submit class: "btn btn-primary" %>
-  
+
 <% end %>

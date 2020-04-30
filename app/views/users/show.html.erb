@@ -3,9 +3,14 @@
     <div class="card-body">
       <h5 class="card-title"><%= @user.username %></h5>
       <h6 class="card-subtitle mb-2 text-muted"><%= @user.email %></h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <p class="card-text">Name: <%= @user.user_detail.name %></p>
+      <p class="card-text">Nationality: <%= @user.user_detail.nationality %></p>
+      <p class="card-text">Birthdate: <%= @user.user_detail.birthdate %></p>
+      <p class="card-text">Gender: <%= @user.user_detail.gender %></p>
+      <p class="card-text">Employed: <%= @user.user_detail.employee %></p>
       <% if logged_in? && current_user.id == @user.id %> 
-      <%= link_to 'Edit', edit_user_path(@user) %> | 
+      <%= link_to 'Edit your account', edit_user_path(@user) %> |       
+      <%= link_to 'Edit your personal info', edit_user_detail_path(@user.user_detail) %> |       
       <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
     </div>
