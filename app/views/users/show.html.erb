@@ -1,6 +1,11 @@
 <div class="p-5">
   <div class="card">
     <div class="card-body">
+      <% if @user.avatar.attached? %>
+        <%= image_tag(@user.avatar) %>
+      <% else %>
+        <%= image_tag('default.png', size: "60x60") %>
+      <% end %>
       <h5 class="card-title"><%= @user.username %></h5>
       <h6 class="card-subtitle mb-2 text-muted"><%= @user.email %></h6>
       <p class="card-text">Name: <%= @user.user_detail.name %></p>

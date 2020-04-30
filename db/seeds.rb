@@ -1,7 +1,8 @@
-50.times do
+100.times do
   User.create(
-    username: Faker::Internet.username,
+    username: Faker::GreekPhilosophers.name,
     email: Faker::Internet.email,
-    password: Faker::Internet.password
+    password: 'password',
+    password_confirmation: 'password'
   )
 end

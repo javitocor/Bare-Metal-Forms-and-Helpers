@@ -26,6 +26,14 @@
       <%= f.password_field :password_confirmation, class: "form-control" %>
     </div>
 
+    <div class="input-group">
+      <span class="input-group-btn">
+        <span class="btn btn-small btn-outline-primary btn-inverse" onclick="$(this).parent().find('input[type=file]').click();">Add New Avatar</span>
+        <%= f.file_field :avatar, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;" %>
+      </span>
+    </div>
+    <br>
+
   <% else %>
     <div class="form-group">
       <%= f.label :password, 'Your password:' %>

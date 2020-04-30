@@ -5,6 +5,11 @@
     <div class="col-lg-4 mb-4">
       <div class="card">
         <div class="card-body">
+          <% if user.avatar.attached? %>
+            <%= image_tag(user.avatar) %>
+          <% else %>
+            <%= image_tag('default.png', size: "40x40") %>
+          <% end %>
           <h5 class="card-title"><%= user.username %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= user.email %></h6>
           <%= link_to 'Show', user %>
