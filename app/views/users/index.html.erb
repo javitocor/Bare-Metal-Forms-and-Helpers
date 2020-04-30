@@ -1,4 +1,5 @@
 <h1 class="py-5">Users List:</h1>
+<div><%= will_paginate(:renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'pagination justify-content-center') %></div>
 
 <div class="row">
   <% @users.each do |user| %>
@@ -14,11 +15,11 @@
           <h6 class="card-subtitle mb-2 text-muted"><%= user.email %></h6>
           <%= link_to 'Show', user %>
           <% if logged_in? && current_user.id == user.id %> | 
-            <%= link_to 'Edit', edit_user_path(user) %> | 
-            <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Edit', edit_user_path(user) %>
           <% end %>
         </div>
       </div>
     </div>
   <% end %>
 </div>
+<div><%= will_paginate(:renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'pagination justify-content-center') %></div>
