@@ -7,7 +7,7 @@
       <div class="card">
         <div class="card-body">
           <% if user.avatar.attached? %>
-            <%= image_tag(user.avatar) %>
+            <%= image_tag(user.avatar, size: "30x30") %>
           <% else %>
             <%= image_tag('default.png', size: "30x30") %>
           <% end %>
