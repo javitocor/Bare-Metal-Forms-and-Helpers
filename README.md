@@ -1,6 +1,8 @@
 # Bare Metal Forms and Helpers
 Project based on building forms as a rails practice.
 
+![screenshot](/app/assets/images/screenshot.png)
+
 # What it Does
 Uses different kind of forms, how they work and what they does.
 As extra features we have added some bootstrap style to the site, added login and session features, we have added also the possibility of adding avatar images and extra personal information to the users. Now you need to be logged in to access other users data, edit and destroy accounts. The landing page also has a pagination index. And the search bar works to find users inside the website.
